@@ -1,0 +1,20 @@
+<template>
+    <footer class="bg-dark-300 border-t-2 border-dark-100 text-light-100 font-poppins text-sm font-medium flex flex-col gap-8 items-center py-12 px-[8%] space-x-auto transition lg:flex-row lg:h-[120px]">
+
+        <ul class="flex gap-4 lg:gap-8">
+            <a href="https://www.linkedin.com/school/mmimontbeliard/" target="_blank" title="LinkedIn"><img class="max-lg:h-[36px]" src="icons/LINKEDIN.svg" alt="Icons LINKEDIN"></a>
+            <a href="https://www.tiktok.com/@mmi_montbeliard" target="_blank" title="Tiktok"><img class="max-lg:h-[36px]" src="icons/TIKTOK.svg" alt="Icons TIKTOK"></a>
+            <a href="https://www.instagram.com/mmi_montbeliard/" target="_blank" title="Instagram"><img class="max-lg:h-[36px]" src="icons/INSTAGRAM.svg" alt="Icons INSTAGRAM"></a>
+        </ul>
+
+        <nav class="flex-1 flex justify-center">
+            <ul class="flex flex-col text-center gap-2 lg:flex-row lg:gap-8">
+                <NuxtLink to="/" class="px-4 py-2 duration-300 ease-in-out hover:text-light-200">Mentions Légales</NuxtLink>
+                <NuxtLink to="/" class="px-4 py-2 duration-300 ease-in-out hover:text-light-200">Cookies</NuxtLink>
+                <NuxtLink to="/" class="px-4 py-2 duration-300 ease-in-out hover:text-light-200">Contact</NuxtLink>
+            </ul>
+        </nav>
+  
+        <NuxtLink to="/" class="duration-300 ease-in-out text-light-200 hover:text-light-100">© 2023 ・ MMI Montbéliard</NuxtLink>
+    </footer>
+</template>
