@@ -7,9 +7,9 @@
                     <img class="h-[35px] lg:h-full" src="/img/LOGO.png" alt="Logo du département MMI de Montbéliard">
                 </NuxtLink>
                 <button @click="toggleMenu" class="md:hidden">
-                    <svg class="w-8 h-8 text-light-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"></path>
-                    </svg>
+                    <span class="bar" :class="{ 'open': menuIsOpen }"></span>
+                    <span class="bar" :class="{ 'open': menuIsOpen }"></span>
+                    <span class="bar" :class="{ 'open': menuIsOpen }"></span>
                 </button>
             </div>
             <nav class="hidden md:flex-1 md:flex justify-center">
@@ -37,6 +37,30 @@
     </header>
 </template>
 
+<style scoped>
+    .bar {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: #E5E7EB;
+        margin: 5px 0;
+        transition: 0.4s;
+    }
+
+    .open:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .open:nth-child(2) {
+        opacity: 0;
+    }
+
+    .open:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+</style>
+
+
 <script>
     export default {
         data() {
@@ -51,6 +75,7 @@
             },
             closeMenu() {
                 this.menuIsOpen = false;
+                document.body.classList.toggle('disable-scroll', this.menuIsOpen);
             },
         },
     };

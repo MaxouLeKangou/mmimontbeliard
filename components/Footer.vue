@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-dark-300 border-t-2 border-dark-100 text-light-100 font-poppins text-sm font-medium flex flex-col gap-8 items-center py-12 px-[8%] space-x-auto transition lg:flex-row lg:h-[120px]">
+    <footer class="bg-dark-300 border-t-2 border-dark-100 text-light-100 font-poppins text-sm font-medium flex flex-col gap-8 items-center py-12 px-[6%] xl:px-[10%] space-x-auto transition lg:flex-row lg:h-[120px]">
 
         <ul class="flex gap-4 lg:gap-8">
             <a href="https://www.linkedin.com/school/mmimontbeliard/" target="_blank" title="LinkedIn"><img class="max-lg:h-[36px]" src="icons/LINKEDIN.svg" alt="Icons LINKEDIN"></a>
