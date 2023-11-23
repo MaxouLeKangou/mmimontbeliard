@@ -1,35 +1,57 @@
-<script scope>
-    const toggleMenu = ref(false);
-</script>
-
 <template>
-    <header class="bg-dark-300 text-light-200 font-poppins text-base font-medium h-[100px] flex items-center px-[6%] transition xl:px-[10%]">
-        
-        <div class="max-md:w-full flex justify-between">
-            <!-- Logo à gauche -->
-            <NuxtLink to="/">
-                <img class="h-[35px] lg:h-full" src="/img/LOGO.png" alt="Logo du département MMI de Montbéliard">
-            </NuxtLink>
-
-            <!-- Bouton du menu hamburger à droite -->
-            <button @pointerdown="toggleMenu" class="md:hidden">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
+    <header class="bg-dark-300 text-light-200 font-poppins text-base font-medium transition" :class="{ 'disable-scroll': menuIsOpen }">
+    
+        <div class="flex items-center h-[100px] px-[6%] xl:px-[10%]">
+            <div class="max-md:w-full flex justify-between">
+                <NuxtLink to="/">
+                    <img class="h-[35px] lg:h-full" src="/img/LOGO.png" alt="Logo du département MMI de Montbéliard">
+                </NuxtLink>
+                <button @click="toggleMenu" class="md:hidden">
+                    <svg class="w-8 h-8 text-light-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="hidden md:flex-1 md:flex justify-center">
+                <ul class="flex text-sm gap-2 lg:gap-5">
+                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:text-base lg:px-4 hover:text-light-100">B.U.T</NuxtLink>
+                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:text-base lg:px-4 hover:text-light-100">Département</NuxtLink>
+                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:text-base lg:px-4 hover:text-light-100">International</NuxtLink>
+                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:text-base lg:px-4 hover:text-light-100">F.A.Q</NuxtLink>
+                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:text-base lg:px-4 hover:text-light-100">Contact</NuxtLink>
+                </ul>
+            </nav>
+            <Button class="hidden md:block" buttonLink="/extras" buttonText="S'INSCRIRE"/>
         </div>
-  
-        <nav class="hidden md:flex-1 md:flex justify-center">
-            <ul class="flex gap-2 lg:gap-5">
-                <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out text-sm lg:text-base lg:px-4 hover:text-light-100">B.U.T</NuxtLink>
-                <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out text-sm lg:text-base lg:px-4 hover:text-light-100">Département</NuxtLink>
-                <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out text-sm lg:text-base lg:px-4 hover:text-light-100">International</NuxtLink>
-                <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out text-sm lg:text-base lg:px-4 hover:text-light-100">F.A.Q</NuxtLink>
-                <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out text-sm lg:text-base lg:px-4 hover:text-light-100">Contact</NuxtLink>
+        <nav v-show="menuIsOpen" style="height: calc(100vh - 100px)" class="w-screen bg-dark-300 px-[14%] flex flex-col gap-12 pt-12">
+            <ul class="flex flex-col gap-4 text-2xl text-light-100 " @click="closeMenu">
+                <NuxtLink to="/" class="py-2 border-b-2 border-light-200">B.U.T</NuxtLink>
+                <NuxtLink to="/" class="py-2 border-b-2 border-light-200">Département</NuxtLink>
+                <NuxtLink to="/" class="py-2 border-b-2 border-light-200">International</NuxtLink>
+                <NuxtLink to="/" class="py-2 border-b-2 border-light-200">F.A.Q</NuxtLink>
+                <NuxtLink to="/" class="py-2 border-b-2 border-light-200">Contact</NuxtLink>
             </ul>
+            <Button buttonLink="/extras" buttonText="S'INSCRIRE" @click="closeMenu"/>
         </nav>
-
-        <Button class="hidden text-sm md:block lg:text-base" buttonLink="/extras" buttonText="S'INSCRIRE"/>
-        
+    
     </header>
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                menuIsOpen: false,
+            };
+        },
+        methods: {
+            toggleMenu() {
+                this.menuIsOpen = !this.menuIsOpen;
+                document.body.classList.toggle('disable-scroll', this.menuIsOpen);
+            },
+            closeMenu() {
+                this.menuIsOpen = false;
+            },
+        },
+    };
+</script>
