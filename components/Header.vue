@@ -13,17 +13,17 @@
                 </button>
             </div>
             <nav class="hidden md:flex-1 md:flex justify-center">
-                <ul class="flex text-sm gap-2 lg:gap-5">
-                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:text-base lg:px-4 hover:text-light-100">B.U.T</NuxtLink>
-                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:text-base lg:px-4 hover:text-light-100">Département</NuxtLink>
-                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:text-base lg:px-4 hover:text-light-100">International</NuxtLink>
-                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:text-base lg:px-4 hover:text-light-100">F.A.Q</NuxtLink>
-                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:text-base lg:px-4 hover:text-light-100">Contact</NuxtLink>
+                <ul class="flex text-sm lg:text-base gap-2 lg:gap-5">
+                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:px-4 hover:text-light-100">B.U.T</NuxtLink>
+                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:px-4 hover:text-light-100">Département</NuxtLink>
+                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:px-4 hover:text-light-100">International</NuxtLink>
+                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:px-4 hover:text-light-100">F.A.Q</NuxtLink>
+                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:px-4 hover:text-light-100">Contact</NuxtLink>
                 </ul>
             </nav>
             <Button class="hidden md:block" buttonLink="/extras" buttonText="S'INSCRIRE"/>
         </div>
-        <nav v-show="menuIsOpen" style="height: calc(100vh - 100px)" class="w-screen bg-dark-300 px-[14%] flex flex-col gap-12 pt-12">
+        <nav v-show="menuIsOpen" class="h-screen w-screen bg-dark-300 px-[14%] flex flex-col gap-12 pt-12">
             <ul class="flex flex-col gap-4 text-2xl text-light-100 " @click="closeMenu">
                 <NuxtLink to="/" class="py-2 border-b-2 border-light-200">B.U.T</NuxtLink>
                 <NuxtLink to="/" class="py-2 border-b-2 border-light-200">Département</NuxtLink>
