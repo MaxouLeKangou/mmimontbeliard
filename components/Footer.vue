@@ -15,6 +15,6 @@
             </ul>
         </nav>
   
-        <NuxtLink to="/" class="duration-300 ease-in-out text-light-200 hover:text-light-100">© 2023 ・ MMI Montbéliard</NuxtLink>
+        <p class="duration-300 ease-in-out text-light-200">© 2023 ・ MMI Montbéliard</p>
     </footer>
 </template>

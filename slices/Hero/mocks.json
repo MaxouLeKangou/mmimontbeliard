@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Quis magna velit ipsum consectetur ea ex. Nulla reprehenderit eiusmod proident occaecat amet laborum mollit. Est dolore ut Lorem reprehenderit ea incididunt voluptate excepteur adipisicing incididunt irure duis cupidatat."
+						}
+					}
+				]
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Curious"
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

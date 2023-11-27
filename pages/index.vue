@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { components } from '~/slices'
+  import { components } from '~/slices'
 
-const prismic = usePrismic()
-const { data: page } = useAsyncData('index', () =>
-  prismic.client.getByUID('page', 'home')
-)
+  const prismic = usePrismic()
+  const { data: page } = useAsyncData('index', () =>
+    prismic.client.getByUID('page', 'home')
+  )
 
-useHead({
-  title: prismic.asText(page.value?.data.title)
-})
+  useHead({
+    title: prismic.asText(page.value?.data.title)
+  })
+
+  onMounted(() => {
+    console.log()
+  })
 
   // import { Scene } from 'three';
   // import * as THREE from 'three';
@@ -49,11 +53,11 @@ useHead({
   <Header/>
   
     <main class="min-h-[80vh]">
-      <SliceZone class="text-light-100"
-        wrapper="main"
-        :slices="page?.data.slices ?? []"
-        :components="components"
-      ></SliceZone>
+
+      <SliceZone class="text-light-100" wrapper="main" :components="components" :slices="page?.data.slices ?? []" />
+
+      
+      
       <!-- <canvas ref="experience"/> -->
     </main>
 
