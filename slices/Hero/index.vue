@@ -19,8 +19,14 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
 
-    <PrismicRichText :field="slice.primary.title" />
-    <PrismicRichText :field="slice.primary.content" />
+    <div class="flex flex-col max-lg:items-center max-lg:text-center lg:justify-center h-[80vh] gap-5 xl:gap-10">
+      <PrismicRichText :field="slice.primary.title" class="font-marker text-4xl xl:text-7xl"/>
+      <PrismicRichText :field="slice.primary.content" class="text-light-200 text-sm xl:text-xl lg:w-[400px] xl:w-[600px]"/>
+      <div class="flex gap-5 xl:gap-10">
+        <Button buttonLink="/extras" buttonText="S'INSCRIRE"/>
+        <Button buttonLink="/extras" buttonText="ESPACE PRO"/>
+      </div>
+    </div>
     
 
   </section>

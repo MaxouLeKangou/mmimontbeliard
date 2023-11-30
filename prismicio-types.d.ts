@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type PageDocumentDataSlicesSlice = VideoSlice | HeroSlice | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -144,6 +144,68 @@ export type RichTextSlice = prismic.SharedSlice<
   RichTextSliceVariation
 >;
 
+/**
+ * Primary content in *Video → Primary*
+ */
+export interface VideoSliceDefaultPrimary {
+  /**
+   * Title field in *Video → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Video → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Video field in *Video → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  video: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Video Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Video*
+ */
+type VideoSliceVariation = VideoSliceDefault;
+
+/**
+ * Video Shared Slice
+ *
+ * - **API ID**: `video`
+ * - **Description**: Video
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSlice = prismic.SharedSlice<"video", VideoSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -166,6 +228,10 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      VideoSlice,
+      VideoSliceDefaultPrimary,
+      VideoSliceVariation,
+      VideoSliceDefault,
     };
   }
 }

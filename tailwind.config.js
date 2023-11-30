@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./slices/**/*.vue",
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
     "./pages/**/*.vue",
@@ -12,6 +13,7 @@ module.exports = {
 
     colors: {
 
+      transparent: 'transparent',
       
       light: {
         100: '#E5E7EB',
