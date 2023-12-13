@@ -18,10 +18,10 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="flex flex-col max-lg:items-center max-lg:text-center lg:justify-center h-[100vh] gap-5 xl:gap-10">
+    <div class="px-[6%] xl:px-[10%] flex flex-col max-lg:items-center max-lg:text-center lg:justify-center h-[80vh] lg:h-screen gap-5 xl:gap-10">
       <PrismicRichText :field="slice.primary.title" class="max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-4xl xl:text-5xl"/>
       <PrismicRichText :field="slice.primary.content" class="text-light-200 text-sm xl:text-xl lg:w-[600px] xl:w-[1000px]"/>
-      <PrismicImage :field="slice.primary.video"/>
+      <PrismicImage :field="slice.primary.video" class="object-cover"/>
     </div>
   </section>
 </template>

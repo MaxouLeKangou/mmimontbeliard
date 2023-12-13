@@ -72,12 +72,11 @@
 <template>
   <Header/>
   
-    <main class="h-[200vh]">
-      <div class="px-[6%] xl:px-[10%] absolute">
-        <SliceZone class="text-light-100" wrapper="main" :components="components" :slices="page?.data.slices ?? []" />
-      </div>
-      <canvas ref="experience"/>
+    <main class="">
+      <SliceZone class="text-light-100 flex flex-col lg:gap-48" wrapper="main" :components="components" :slices="page?.data.slices ?? []" />
     </main>
+      
+      <!-- <canvas ref="experience"/> -->
 
     <Footer/>
 </template>

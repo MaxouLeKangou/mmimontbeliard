@@ -4,7 +4,11 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = VideoSlice | HeroSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice =
+  | CourseSlice
+  | VideoSlice
+  | HeroSlice
+  | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -46,6 +50,78 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 export type AllDocumentTypes = PageDocument;
+
+/**
+ * Primary content in *Course → Primary*
+ */
+export interface CourseSliceDefaultPrimary {
+  /**
+   * Title field in *Course → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Tag_1 field in *Course → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.primary.tag_1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tag_1: prismic.RichTextField;
+
+  /**
+   * Tag_2 field in *Course → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.primary.tag_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tag_2: prismic.RichTextField;
+
+  /**
+   * Content field in *Course → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Course Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CourseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CourseSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Course*
+ */
+type CourseSliceVariation = CourseSliceDefault;
+
+/**
+ * Course Shared Slice
+ *
+ * - **API ID**: `course`
+ * - **Description**: Course
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CourseSlice = prismic.SharedSlice<"course", CourseSliceVariation>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -220,6 +296,10 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CourseSlice,
+      CourseSliceDefaultPrimary,
+      CourseSliceVariation,
+      CourseSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
