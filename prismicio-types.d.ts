@@ -5,6 +5,8 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | YearSlice
+  | TitleSlice
   | CourseSlice
   | VideoSlice
   | HeroSlice
@@ -221,6 +223,58 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Title → Primary*
+ */
+export interface TitleSliceDefaultPrimary {
+  /**
+   * title field in *Title → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Title → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Title Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TitleSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TitleSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Title*
+ */
+type TitleSliceVariation = TitleSliceDefault;
+
+/**
+ * Title Shared Slice
+ *
+ * - **API ID**: `title`
+ * - **Description**: Title
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TitleSlice = prismic.SharedSlice<"title", TitleSliceVariation>;
+
+/**
  * Primary content in *Video → Primary*
  */
 export interface VideoSliceDefaultPrimary {
@@ -282,6 +336,68 @@ type VideoSliceVariation = VideoSliceDefault;
  */
 export type VideoSlice = prismic.SharedSlice<"video", VideoSliceVariation>;
 
+/**
+ * Primary content in *Year → Primary*
+ */
+export interface YearSliceDefaultPrimary {
+  /**
+   * Year field in *Year → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: year.primary.year
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  year: prismic.RichTextField;
+
+  /**
+   * Title field in *Year → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: year.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Year → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: year.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Year Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type YearSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<YearSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Year*
+ */
+type YearSliceVariation = YearSliceDefault;
+
+/**
+ * Year Shared Slice
+ *
+ * - **API ID**: `year`
+ * - **Description**: Year
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type YearSlice = prismic.SharedSlice<"year", YearSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -308,10 +424,18 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      TitleSlice,
+      TitleSliceDefaultPrimary,
+      TitleSliceVariation,
+      TitleSliceDefault,
       VideoSlice,
       VideoSliceDefaultPrimary,
       VideoSliceVariation,
       VideoSliceDefault,
+      YearSlice,
+      YearSliceDefaultPrimary,
+      YearSliceVariation,
+      YearSliceDefault,
     };
   }
 }

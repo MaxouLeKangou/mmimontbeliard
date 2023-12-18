@@ -12,59 +12,59 @@
     title: prismic.asText(page.value?.data.title)
   })
 
-  import { Scene } from 'three';
-  import * as THREE from 'three';
+  // import { Scene } from 'three';
+  // import * as THREE from 'three';
 
-  let renderer: THREE.WebGLRenderer;
-  const experience: Ref<HTMLCanvasElement | null> = ref(null);
+  // let renderer: THREE.WebGLRenderer;
+  // const experience: Ref<HTMLCanvasElement | null> = ref(null);
 
-  const { width, height } = useWindowSize();
-  const aspectRatio = computed(() => width.value / height.value);
+  // const { width, height } = useWindowSize();
+  // const aspectRatio = computed(() => width.value / height.value);
 
 
-  const bgColor = new THREE.Color(0x0C0C0D);
-  const scene = new Scene();
-  scene.background = bgColor;
+  // const bgColor = new THREE.Color(0x0C0C0D);
+  // const scene = new Scene();
+  // scene.background = bgColor;
 
-  const camera = new THREE.PerspectiveCamera( 75,  aspectRatio.value, 0.1, 1000 );
-  camera.position.set(0, 0, 2);
+  // const camera = new THREE.PerspectiveCamera( 75,  aspectRatio.value, 0.1, 1000 );
+  // camera.position.set(0, 0, 2);
  
-  scene.add(camera);
+  // scene.add(camera);
 
-  const sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(1, 16, 16),
-    new THREE.MeshBasicMaterial({ color: 0x633484 })
-  );
+  // const sphere = new THREE.Mesh(
+  //   new THREE.SphereGeometry(1, 16, 16),
+  //   new THREE.MeshBasicMaterial({ color: 0x633484 })
+  // );
 
-  scene.add(sphere);
+  // scene.add(sphere);
 
-  function updateRender() {
-    renderer.setSize((width.value - 20), height.value);
-    renderer.render(scene, camera);
-  }
+  // function updateRender() {
+  //   renderer.setSize((width.value - 20), height.value);
+  //   renderer.render(scene, camera);
+  // }
 
-  function updateCamera() {
-    camera.aspect = aspectRatio.value;
-    camera.updateProjectionMatrix();
-  }
+  // function updateCamera() {
+  //   camera.aspect = aspectRatio.value;
+  //   camera.updateProjectionMatrix();
+  // }
 
-  function setRenderer() {
-    if(experience.value) {
-      renderer = new THREE.WebGLRenderer({ canvas: experience.value, alpha: true });
-      updateRender();
-    }
-  }
-
-
-  watch(aspectRatio, () => {
-    updateRender();
-    updateCamera();
-  });
+  // function setRenderer() {
+  //   if(experience.value) {
+  //     renderer = new THREE.WebGLRenderer({ canvas: experience.value, alpha: true });
+  //     updateRender();
+  //   }
+  // }
 
 
-  onMounted(() => {
-    setRenderer();
-  });
+  // watch(aspectRatio, () => {
+  //   updateRender();
+  //   updateCamera();
+  // });
+
+
+  // onMounted(() => {
+  //   setRenderer();
+  // });
 
 </script>
 
@@ -72,11 +72,11 @@
 <template>
   <Header/>
   
-    <main class="">
-      <SliceZone class="text-light-100 flex flex-col lg:gap-48" wrapper="main" :components="components" :slices="page?.data.slices ?? []" />
-    </main>
+  <main class="">
+    <SliceZone class="text-light-100 flex flex-col lg:gap-48" wrapper="main" :components="components" :slices="page?.data.slices ?? []" />
+  </main>
       
       <!-- <canvas ref="experience"/> -->
 
-    <Footer/>
+  <Footer/>
 </template>
