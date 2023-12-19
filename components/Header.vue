@@ -6,7 +6,7 @@
                 <NuxtLink to="/">
                     <img class="h-[35px] lg:h-full" src="/img/LOGO.png" alt="Logo du département MMI de Montbéliard">
                 </NuxtLink>
-                <button @click="toggleMenu" class="md:hidden">
+                <button name="Ouvrir le menu" @click="toggleMenu" class="md:hidden">
                     <span class="bar" :class="{ 'open': menuIsOpen }"></span>
                     <span class="bar" :class="{ 'open': menuIsOpen }"></span>
                     <span class="bar" :class="{ 'open': menuIsOpen }"></span>
@@ -25,11 +25,21 @@
         </div>
         <nav v-show="menuIsOpen" class="h-screen w-screen bg-dark-300 px-[14%] flex flex-col gap-12 pt-12">
             <ul class="flex flex-col gap-4 text-2xl text-light-100 " @click="closeMenu">
-                <NuxtLink to="/" class="py-2 border-b-2 border-light-200">B.U.T</NuxtLink>
-                <NuxtLink to="/" class="py-2 border-b-2 border-light-200">Département</NuxtLink>
-                <NuxtLink to="/" class="py-2 border-b-2 border-light-200">International</NuxtLink>
-                <NuxtLink to="/" class="py-2 border-b-2 border-light-200">F.A.Q</NuxtLink>
-                <NuxtLink to="/" class="py-2 border-b-2 border-light-200">Contact</NuxtLink>
+                <li class="py-2 border-b-2 border-light-200">
+                    <NuxtLink to="/">B.U.T</NuxtLink>
+                </li>
+                <li class="py-2 border-b-2 border-light-200">
+                    <NuxtLink to="/">Département</NuxtLink>
+                </li>
+                <li class="py-2 border-b-2 border-light-200">
+                    <NuxtLink to="/">International</NuxtLink>
+                </li>
+                <li class="py-2 border-b-2 border-light-200">
+                    <NuxtLink to="/">F.A.Q</NuxtLink>
+                </li>
+                <li class="py-2 border-b-2 border-light-200">
+                    <NuxtLink to="/">Contact</NuxtLink>
+                </li>
             </ul>
             <Button buttonLink="/extras" buttonText="S'INSCRIRE" @click="closeMenu"/>
         </nav>

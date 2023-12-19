@@ -23,8 +23,8 @@ defineProps(
         <PrismicRichText :field="slice.primary.title" class="max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-4xl"/>
       
         <div class="flex gap-2 text-center font-light text-xs lg:text-sm lg:gap-4">
-          <PrismicRichText :field="slice.primary.tag_1" class="py-1 px-2 bg-dark-100 rounded-md lg:px-4"/>
-          <PrismicRichText :field="slice.primary.tag_2" class="py-1 px-2 bg-dark-100 rounded-md lg:px-4"/>
+          <PrismicRichText :field="slice.primary.tag_1" class="py-1 px-2 bg-[#3F40454D] rounded-md lg:px-4"/>
+          <PrismicRichText :field="slice.primary.tag_2" class="py-1 px-2 bg-[#3F40454D] rounded-md lg:px-4"/>
         </div>
         <PrismicRichText :field="slice.primary.content" class="font-normal text-sm lg:text-base"/>
       </div>
