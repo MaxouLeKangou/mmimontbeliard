@@ -4,7 +4,7 @@
         <div class="flex items-center h-[100px] px-[6%] xl:px-[10%]">
             <div class="max-md:w-full flex justify-between">
                 <NuxtLink to="/">
-                    <img class="h-[35px] lg:h-full" src="/img/LOGO.png" alt="Logo du département MMI de Montbéliard">
+                    <img class="h-[35px] w-full lg:h-full" src="/img/LOGO.png" alt="Logo du département MMI de Montbéliard">
                 </NuxtLink>
                 <button name="Ouvrir le menu" @click="toggleMenu" class="md:hidden">
                     <span class="bar" :class="{ 'open': menuIsOpen }"></span>

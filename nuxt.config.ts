@@ -2,6 +2,7 @@ import { repositoryName } from './slicemachine.config.json'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
 
   css: ['~/assets/css/main.css'],
   postcss: {
@@ -12,9 +13,9 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Prismic + Nuxt Minimal Starter',
+      title: 'MMI Montbéliard',
       htmlAttrs: {
-        lang: 'en',
+        lang: 'fr',
       },
       meta: [
         { charset: 'utf-8' },
