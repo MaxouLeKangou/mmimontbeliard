@@ -6,11 +6,11 @@
                 <NuxtLink to="/">
                     <img class="h-[35px] w-full lg:h-full" src="/img/LOGO.png" alt="Logo du département MMI de Montbéliard">
                 </NuxtLink>
-                <button name="Ouvrir le menu" @click="toggleMenu" class="md:hidden">
+                <div @click="toggleMenu" class="md:hidden">
                     <span class="bar" :class="{ 'open': menuIsOpen }"></span>
                     <span class="bar" :class="{ 'open': menuIsOpen }"></span>
                     <span class="bar" :class="{ 'open': menuIsOpen }"></span>
-                </button>
+                </div>
             </div>
             <nav class="hidden md:flex-1 md:flex justify-center">
                 <ul class="flex text-sm lg:text-base gap-2 lg:gap-5">
