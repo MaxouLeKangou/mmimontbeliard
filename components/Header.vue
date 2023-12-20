@@ -14,11 +14,21 @@
             </div>
             <nav class="hidden md:flex-1 md:flex justify-center">
                 <ul class="flex text-sm lg:text-base gap-2 lg:gap-5">
-                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:px-4 hover:text-light-100">B.U.T</NuxtLink>
-                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:px-4 hover:text-light-100">Département</NuxtLink>
-                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:px-4 hover:text-light-100">International</NuxtLink>
-                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:px-4 hover:text-light-100">F.A.Q</NuxtLink>
-                    <NuxtLink to="/" class="px-3 py-2 duration-300 ease-in-out lg:px-4 hover:text-light-100">Contact</NuxtLink>
+                    <li class="px-3 py-2 lg:px-4">
+                        <NuxtLink to="/" class="duration-300 ease-in-out lg:px-4 hover:text-light-100">B.U.T</NuxtLink>
+                    </li>
+                    <li class="px-3 py-2 lg:px-4">
+                        <NuxtLink to="/" class="duration-300 ease-in-out hover:text-light-100">Département</NuxtLink>
+                    </li>
+                    <li class="px-3 py-2 lg:px-4">
+                        <NuxtLink to="/" class="duration-300 ease-in-out hover:text-light-100">International</NuxtLink>
+                    </li>
+                    <li class="px-3 py-2 lg:px-4">
+                        <NuxtLink to="/" class="duration-300 ease-in-out hover:text-light-100">F.A.Q</NuxtLink>
+                    </li>
+                    <li class="px-3 py-2 lg:px-4">
+                        <NuxtLink to="/" class="duration-300 ease-in-out hover:text-light-100">Contact</NuxtLink>
+                    </li>
                 </ul>
             </nav>
             <Button class="hidden md:block" buttonLink="/extras" buttonText="S'INSCRIRE"/>
