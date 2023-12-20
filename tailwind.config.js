@@ -33,8 +33,8 @@ module.exports = {
 
     extend: {
       fontFamily: {
-        marker: ['Permanent Marker', 'cursive'],
-        poppins: ['Poppins', 'sans-serif'],
+        marker: ['imp-marker', 'cursive'],
+        poppins: ['imp-poppins', 'sans-serif'],
       },
     },
   },

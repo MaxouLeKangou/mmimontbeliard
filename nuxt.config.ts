@@ -13,9 +13,9 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'MMI Montbéliard',
+      title: 'Prismic + Nuxt Minimal Starter',
       htmlAttrs: {
-        lang: 'fr',
+        lang: 'en',
       },
       meta: [
         { charset: 'utf-8' },
