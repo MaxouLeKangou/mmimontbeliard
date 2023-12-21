@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxtjs/prismic'],
+  modules: ['@nuxtjs/prismic', "@nuxt/image"],
 
   prismic: {
     endpoint: 'mmimontbeliard',

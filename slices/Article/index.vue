@@ -21,7 +21,7 @@ defineProps(
       class="col-span-1"
     >
       <NuxtLink :to="'students/' + slice.primary.link.uid" class="block bg-dark-200 rounded-b-md lg:rounded-b-xl">
-        <PrismicImage :field="slice.primary.image" class="object-cover w-full h-full rounded-t-md lg:rounded-t-xl"/>
+        <PrismicImage :field="slice.primary.image" class="object-cover w-full h-[100px] rounded-t-md sm:h-[150px] md:h-[200px] lg:rounded-t-xl"/>
         <div class="p-3 lg:p-6">
           <div class="flex flex-col gap-1 lg:gap-2">
             <PrismicRichText :field="slice.primary.place" class="text-[10px] text-light-200 lg:text-sm"/>
