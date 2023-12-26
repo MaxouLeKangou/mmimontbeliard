@@ -4,7 +4,7 @@ import { type Content } from "@prismicio/client";
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
 defineProps(
-  getSliceComponentProps<Content.VideoSlice>([
+  getSliceComponentProps<Content.ImageSlice>([
     "slice",
     "index",
     "slices",
@@ -19,11 +19,11 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
     <div class="px-[6%] xl:px-[10%] flex flex-col h-screen gap-20">
-      <div class="flex flex-col gap-3 xl:gap-5">
-        <PrismicRichText :field="slice.primary.title" class="max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl xl:text-5xl"/>
-        <PrismicRichText :field="slice.primary.content" class="text-light-200 text-sm xl:text-xl max-w-[800px]"/>
+      <div class="flex flex-col gap-3 lg:gap-5">
+        <PrismicRichText :field="slice.primary.title" class="max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-5xl"/>
+        <PrismicRichText :field="slice.primary.content" class="text-light-200 text-sm lg:text-xl max-w-[800px]"/>
       </div>
-      <PrismicEmbed :field="slice.primary.video" class="w-full h-full"/>
+      <PrismicImage :field="slice.primary.image" class="object-cover w-full h-full"/>
     </div>
   </section>
 </template>

@@ -81,6 +81,7 @@ export type ArticleDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ImageSlice
   | TitleMiddleSlice
   | ArticleSlice
   | YearSlice
@@ -130,6 +131,31 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 export type AllDocumentTypes = ArticleDocument | PageDocument;
+
+/**
+ * Primary content in *Article → Primary*
+ */
+export interface ArticleSliceDefaultPrimary {
+  /**
+   * Title field in *Article → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Article → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
 
 /**
  * Primary content in *Article → Items*
@@ -195,7 +221,7 @@ export interface ArticleSliceDefaultItem {
  */
 export type ArticleSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ArticleSliceDefaultPrimary>,
   Simplify<ArticleSliceDefaultItem>
 >;
 
@@ -339,6 +365,68 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *Image → Primary*
+ */
+export interface ImageSliceDefaultPrimary {
+  /**
+   * Title field in *Image → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Image → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Image field in *Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Image Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Image*
+ */
+type ImageSliceVariation = ImageSliceDefault;
+
+/**
+ * Image Shared Slice
+ *
+ * - **API ID**: `image`
+ * - **Description**: Image
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
 
 /**
  * Primary content in *RichText → Primary*
@@ -519,12 +607,12 @@ export interface VideoSliceDefaultPrimary {
   /**
    * Video field in *Video → Primary*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Embed
    * - **Placeholder**: *None*
    * - **API ID Path**: video.primary.video
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **Documentation**: https://prismic.io/docs/field#embed
    */
-  video: prismic.ImageField<never>;
+  video: prismic.EmbedField;
 }
 
 /**
@@ -634,6 +722,7 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
       ArticleSlice,
+      ArticleSliceDefaultPrimary,
       ArticleSliceDefaultItem,
       ArticleSliceVariation,
       ArticleSliceDefault,
@@ -645,6 +734,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ImageSlice,
+      ImageSliceDefaultPrimary,
+      ImageSliceVariation,
+      ImageSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
