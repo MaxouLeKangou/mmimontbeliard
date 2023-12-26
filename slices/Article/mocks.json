@@ -2,69 +2,82 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {
-			"image": {
-				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
-					"width": 3277,
-					"height": 4092
-				},
-				"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
-				"width": 3277,
-				"height": 4092,
-				"edit": {
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					},
-					"background": "transparent"
-				},
-				"credits": null,
-				"alt": null,
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
-			},
-			"place": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "In culpa nisi nisi consequat magna sint nostrud dolor in fugiat proident nisi aliqua pariatur. Officia fugiat magna non cillum excepteur elit. Ea reprehenderit aute laborum elit dolor labore veniam labore occaecat excepteur cupidatat cillum."
-						}
-					}
-				]
-			},
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Lorem ex sunt fugiat adipisicing sint incididunt labore nulla."
-						}
-					}
-				]
-			},
-			"date": {
-				"__TYPE__": "FieldContent",
-				"type": "Date",
-				"value": "2012-02-25"
-			},
-			"link": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://twitter.com"
-				}
-			}
-		},
+		"primary": {},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",
-				"value": []
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+								"width": 3882,
+								"height": 2584
+							},
+							"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+							"width": 3882,
+							"height": 2584,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {}
+						}
+					],
+					[
+						"place",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Cupidatat nisi voluptate quis et laborum id dolore reprehenderit nulla veniam laborum aliqua. Commodo culpa deserunt dolor ea dolor occaecat aliqua sit id nostrud laboris cillum pariatur sint."
+									}
+								}
+							]
+						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Mollit cupidatat aliquip elit proident reprehenderit pariatur cillum dolore occaecat ipsum quis laborum."
+									}
+								}
+							]
+						}
+					],
+					[
+						"date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Date",
+							"value": "2021-06-28"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://slicemachine.dev"
+							}
+						}
+					]
+				]
 			}
 		]
 	}

@@ -81,6 +81,7 @@ export type ArticleDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TitleMiddleSlice
   | ArticleSlice
   | YearSlice
   | TitleSlice
@@ -131,55 +132,55 @@ export type PageDocument<Lang extends string = string> =
 export type AllDocumentTypes = ArticleDocument | PageDocument;
 
 /**
- * Primary content in *Article → Primary*
+ * Primary content in *Article → Items*
  */
-export interface ArticleSliceDefaultPrimary {
+export interface ArticleSliceDefaultItem {
   /**
-   * Image field in *Article → Primary*
+   * Image field in *Article → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: article.primary.image
+   * - **API ID Path**: article.items[].image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
 
   /**
-   * Place field in *Article → Primary*
+   * Place field in *Article → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: article.primary.place
+   * - **API ID Path**: article.items[].place
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   place: prismic.RichTextField;
 
   /**
-   * Title field in *Article → Primary*
+   * Title field in *Article → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: article.primary.title
+   * - **API ID Path**: article.items[].title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.RichTextField;
 
   /**
-   * Date field in *Article → Primary*
+   * Date field in *Article → Items*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
-   * - **API ID Path**: article.primary.date
+   * - **API ID Path**: article.items[].date
    * - **Documentation**: https://prismic.io/docs/field#date
    */
   date: prismic.DateField;
 
   /**
-   * Link field in *Article → Primary*
+   * Link field in *Article → Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: article.primary.link
+   * - **API ID Path**: article.items[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
@@ -194,8 +195,8 @@ export interface ArticleSliceDefaultPrimary {
  */
 export type ArticleSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<ArticleSliceDefaultPrimary>,
-  never
+  Record<string, never>,
+  Simplify<ArticleSliceDefaultItem>
 >;
 
 /**
@@ -437,6 +438,61 @@ type TitleSliceVariation = TitleSliceDefault;
 export type TitleSlice = prismic.SharedSlice<"title", TitleSliceVariation>;
 
 /**
+ * Primary content in *TitleMiddle → Primary*
+ */
+export interface TitleMiddleSliceDefaultPrimary {
+  /**
+   * Title field in *TitleMiddle → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_middle.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *TitleMiddle → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_middle.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TitleMiddle Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TitleMiddleSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TitleMiddleSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TitleMiddle*
+ */
+type TitleMiddleSliceVariation = TitleMiddleSliceDefault;
+
+/**
+ * TitleMiddle Shared Slice
+ *
+ * - **API ID**: `title_middle`
+ * - **Description**: TitleMiddle
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TitleMiddleSlice = prismic.SharedSlice<
+  "title_middle",
+  TitleMiddleSliceVariation
+>;
+
+/**
  * Primary content in *Video → Primary*
  */
 export interface VideoSliceDefaultPrimary {
@@ -578,7 +634,7 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
       ArticleSlice,
-      ArticleSliceDefaultPrimary,
+      ArticleSliceDefaultItem,
       ArticleSliceVariation,
       ArticleSliceDefault,
       CourseSlice,
@@ -597,6 +653,10 @@ declare module "@prismicio/client" {
       TitleSliceDefaultPrimary,
       TitleSliceVariation,
       TitleSliceDefault,
+      TitleMiddleSlice,
+      TitleMiddleSliceDefaultPrimary,
+      TitleMiddleSliceVariation,
+      TitleMiddleSliceDefault,
       VideoSlice,
       VideoSliceDefaultPrimary,
       VideoSliceVariation,
