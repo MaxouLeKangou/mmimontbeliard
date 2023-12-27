@@ -14,7 +14,7 @@ defineProps(
 </script>
 
 <template>
-  <section class="mx-[6%] xl:mx-[10%]"
+  <section class="mx-[6%] xl:mx-[10%] h-screen flex flex-col justify-center"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >

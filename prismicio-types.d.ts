@@ -257,31 +257,56 @@ export interface CourseSliceDefaultPrimary {
   title: prismic.RichTextField;
 
   /**
-   * Tag_1 field in *Course → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: course.primary.tag_1
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  tag_1: prismic.RichTextField;
-
-  /**
-   * Tag_2 field in *Course → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: course.primary.tag_2
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  tag_2: prismic.RichTextField;
-
-  /**
    * Content field in *Course → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: course.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Course → Items*
+ */
+export interface CourseSliceDefaultItem {
+  /**
+   * Title field in *Course → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Tag_1 field in *Course → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.items[].tag_1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tag_1: prismic.RichTextField;
+
+  /**
+   * Tag_2 field in *Course → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.items[].tag_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tag_2: prismic.RichTextField;
+
+  /**
+   * Content field in *Course → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.items[].content
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   content: prismic.RichTextField;
@@ -297,7 +322,7 @@ export interface CourseSliceDefaultPrimary {
 export type CourseSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<CourseSliceDefaultPrimary>,
-  never
+  Simplify<CourseSliceDefaultItem>
 >;
 
 /**
@@ -647,16 +672,6 @@ export type VideoSlice = prismic.SharedSlice<"video", VideoSliceVariation>;
  */
 export interface YearSliceDefaultPrimary {
   /**
-   * Year field in *Year → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: year.primary.year
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  year: prismic.RichTextField;
-
-  /**
    * Title field in *Year → Primary*
    *
    * - **Field Type**: Rich Text
@@ -678,6 +693,41 @@ export interface YearSliceDefaultPrimary {
 }
 
 /**
+ * Primary content in *Year → Items*
+ */
+export interface YearSliceDefaultItem {
+  /**
+   * Year field in *Year → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: year.items[].year
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  year: prismic.RichTextField;
+
+  /**
+   * Title field in *Year → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: year.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Year → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: year.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
  * Default variation for Year Slice
  *
  * - **API ID**: `default`
@@ -687,7 +737,7 @@ export interface YearSliceDefaultPrimary {
 export type YearSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<YearSliceDefaultPrimary>,
-  never
+  Simplify<YearSliceDefaultItem>
 >;
 
 /**
@@ -728,6 +778,7 @@ declare module "@prismicio/client" {
       ArticleSliceDefault,
       CourseSlice,
       CourseSliceDefaultPrimary,
+      CourseSliceDefaultItem,
       CourseSliceVariation,
       CourseSliceDefault,
       HeroSlice,
@@ -756,6 +807,7 @@ declare module "@prismicio/client" {
       VideoSliceDefault,
       YearSlice,
       YearSliceDefaultPrimary,
+      YearSliceDefaultItem,
       YearSliceVariation,
       YearSliceDefault,
     };

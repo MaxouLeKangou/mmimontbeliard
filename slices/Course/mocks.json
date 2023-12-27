@@ -14,28 +14,6 @@
 					}
 				]
 			},
-			"tag_1": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Nisi do do non. Dolor adipisicing esse cillum. Velit sunt quis aute velit ad id reprehenderit in eu."
-						}
-					}
-				]
-			},
-			"tag_2": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Anim enim aliqua dolor eu nisi aliquip. Lorem anim magna aliqua veniam adipisicing mollit veniam mollit nulla esse nisi esse."
-						}
-					}
-				]
-			},
 			"content": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -48,6 +26,68 @@
 				]
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Irure non esse commodo. Elit ut veniam in nulla consequat elit officia tempor enim voluptate irure aute culpa."
+									}
+								}
+							]
+						}
+					],
+					[
+						"tag_1",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Dolore duis ullamco ex adipisicing nulla ad eiusmod labore anim sit non veniam cupidatat quis."
+									}
+								}
+							]
+						}
+					],
+					[
+						"tag_2",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Aute proident culpa esse sunt. Incididunt cillum labore excepteur non dolor ut exercitation elit minim quis tempor. Amet sint reprehenderit eiusmod voluptate."
+									}
+								}
+							]
+						}
+					],
+					[
+						"content",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Culpa aliquip ut aliquip adipisicing ut proident et exercitation Lorem et fugiat sit aute. Dolore mollit cupidatat ut eu esse minim dolor sint dolor sit deserunt. Occaecat proident non exercitation nostrud veniam dolor enim nostrud enim anim enim."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
 	}
 ]
