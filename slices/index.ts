@@ -7,10 +7,12 @@ export const components = defineSliceZoneComponents({
   article: defineAsyncComponent(() => import("./Article/index.vue")),
   course: defineAsyncComponent(() => import("./Course/index.vue")),
   hero: defineAsyncComponent(() => import("./Hero/index.vue")),
+  heros: defineAsyncComponent(() => import("./Heros/index.vue")),
   image: defineAsyncComponent(() => import("./Image/index.vue")),
   rich_text: defineAsyncComponent(() => import("./RichText/index.vue")),
   title: defineAsyncComponent(() => import("./Title/index.vue")),
   title_middle: defineAsyncComponent(() => import("./TitleMiddle/index.vue")),
   video: defineAsyncComponent(() => import("./Video/index.vue")),
+  works: defineAsyncComponent(() => import("./Works/index.vue")),
   year: defineAsyncComponent(() => import("./Year/index.vue")),
 });

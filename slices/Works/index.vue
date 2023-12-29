@@ -4,7 +4,7 @@ import { type Content } from "@prismicio/client";
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
 defineProps(
-  getSliceComponentProps<Content.ArticleSlice>([
+  getSliceComponentProps<Content.WorksSlice>([
     "slice",
     "index",
     "slices",
@@ -28,17 +28,14 @@ defineProps(
           <NuxtLink :to="'students/' + item.link.uid" class="bg-dark-200 rounded-b-md lg:rounded-b-xl flex flex-col h-full">
             <PrismicImage :field="item.image" class="object-cover w-full h-[100px] rounded-t-md sm:h-[150px] md:h-[200px] lg:rounded-t-xl"/>
             <div class="flex-1 p-3 lg:p-6 flex flex-col justify-between">
-              <div class="flex flex-col gap-1 lg:gap-2">
-                <PrismicRichText :field="item.place" class="text-[10px] text-light-200 lg:text-sm"/>
-                <PrismicRichText :field="item.title" class="text-sm font-semibold lg:text-xl"/>
-              </div>
-              <p class="text-[10px] text-light-200 pt-4 lg:pt-6 lg:text-sm">000 vues ・ {{ item.date }}</p>
+              <PrismicRichText :field="item.title" class="text-sm font-semibold lg:text-xl"/>
+              <PrismicRichText :field="item.content" class="text-[10px] text-light-200 mt-2 lg:text-sm"/>
             </div>
           </NuxtLink>
         </section>
       </div>
-      <NuxtLink to="/articles" class="flex gap-2 max-lg:justify-center">
-        <p class="text-light-200">Découvrir l’actualité</p>
+      <NuxtLink to="/works" class="flex gap-2 max-lg:justify-center">
+        <p class="text-light-200">Découvrir la liste des projets</p>
         <Arrow class="max-lg:rotate-90"/>
       </NuxtLink>
     </div>

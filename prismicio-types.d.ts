@@ -80,7 +80,80 @@ export type ArticleDocument<Lang extends string = string> =
     Lang
   >;
 
+type CourseDocumentDataSlicesSlice = HerosSlice;
+
+/**
+ * Content for Course documents
+ */
+interface CourseDocumentData {
+  /**
+   * Title field in *Course*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Course*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CourseDocumentDataSlicesSlice> /**
+   * Meta Description field in *Course*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: course.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Course*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Course*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: course.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Course document from Prismic
+ *
+ * - **API ID**: `course`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CourseDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<CourseDocumentData>, "course", Lang>;
+
 type PageDocumentDataSlicesSlice =
+  | WorksSlice
   | ImageSlice
   | TitleMiddleSlice
   | ArticleSlice
@@ -130,7 +203,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = ArticleDocument | PageDocument;
+export type AllDocumentTypes = ArticleDocument | CourseDocument | PageDocument;
 
 /**
  * Primary content in *Article → Primary*
@@ -390,6 +463,58 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *Heros → Primary*
+ */
+export interface HerosSliceDefaultPrimary {
+  /**
+   * Title field in *Heros → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heros.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Heros → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heros.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Heros Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HerosSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HerosSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Heros*
+ */
+type HerosSliceVariation = HerosSliceDefault;
+
+/**
+ * Heros Shared Slice
+ *
+ * - **API ID**: `heros`
+ * - **Description**: Heros
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HerosSlice = prismic.SharedSlice<"heros", HerosSliceVariation>;
 
 /**
  * Primary content in *Image → Primary*
@@ -668,6 +793,103 @@ type VideoSliceVariation = VideoSliceDefault;
 export type VideoSlice = prismic.SharedSlice<"video", VideoSliceVariation>;
 
 /**
+ * Primary content in *Works → Primary*
+ */
+export interface WorksSliceDefaultPrimary {
+  /**
+   * Title field in *Works → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Works → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Works → Items*
+ */
+export interface WorksSliceDefaultItem {
+  /**
+   * Image field in *Works → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Works → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Works → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Link field in *Works → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Default variation for Works Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorksSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WorksSliceDefaultPrimary>,
+  Simplify<WorksSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Works*
+ */
+type WorksSliceVariation = WorksSliceDefault;
+
+/**
+ * Works Shared Slice
+ *
+ * - **API ID**: `works`
+ * - **Description**: Works
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorksSlice = prismic.SharedSlice<"works", WorksSliceVariation>;
+
+/**
  * Primary content in *Year → Primary*
  */
 export interface YearSliceDefaultPrimary {
@@ -767,6 +989,9 @@ declare module "@prismicio/client" {
       ArticleDocument,
       ArticleDocumentData,
       ArticleDocumentDataSlicesSlice,
+      CourseDocument,
+      CourseDocumentData,
+      CourseDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -785,6 +1010,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HerosSlice,
+      HerosSliceDefaultPrimary,
+      HerosSliceVariation,
+      HerosSliceDefault,
       ImageSlice,
       ImageSliceDefaultPrimary,
       ImageSliceVariation,
@@ -805,6 +1034,11 @@ declare module "@prismicio/client" {
       VideoSliceDefaultPrimary,
       VideoSliceVariation,
       VideoSliceDefault,
+      WorksSlice,
+      WorksSliceDefaultPrimary,
+      WorksSliceDefaultItem,
+      WorksSliceVariation,
+      WorksSliceDefault,
       YearSlice,
       YearSliceDefaultPrimary,
       YearSliceDefaultItem,
