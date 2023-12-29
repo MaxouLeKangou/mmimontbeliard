@@ -4,7 +4,7 @@ import { components } from '~/slices'
 const prismic = usePrismic()
 const route = useRoute()
 const { data: page } = useAsyncData('[uid]', () =>
-  prismic.client.getByUID('student', route.params.uid as string)
+  prismic.client.getByUID('article', route.params.uid as string)
 )
 
 useHead({
@@ -14,9 +14,11 @@ useHead({
 
 
 <template>
+  <Header/>
   <SliceZone
     wrapper="main"
     :slices="page?.data.slices ?? []"
     :components="components"
   />
+  <Footer/>
 </template>

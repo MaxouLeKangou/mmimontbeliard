@@ -25,7 +25,7 @@ defineProps(
     </div>
       <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-10">
         <section v-for="(item, index) in slice.items" :key="index" class="col-span-1">
-          <NuxtLink :to="'students/' + item.link.uid" class="bg-dark-200 rounded-b-md lg:rounded-b-xl flex flex-col h-full">
+          <NuxtLink :to="'article/' + item.link.uid" class="bg-dark-200 rounded-b-md lg:rounded-b-xl flex flex-col h-full">
             <PrismicImage :field="item.image" class="object-cover w-full h-[100px] rounded-t-md sm:h-[150px] md:h-[200px] lg:rounded-t-xl"/>
             <div class="flex-1 p-3 lg:p-6 flex flex-col justify-between">
               <div class="flex flex-col gap-1 lg:gap-2">

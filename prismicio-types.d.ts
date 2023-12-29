@@ -80,7 +80,11 @@ export type ArticleDocument<Lang extends string = string> =
     Lang
   >;
 
-type CourseDocumentDataSlicesSlice = HerosSlice;
+type CourseDocumentDataSlicesSlice =
+  | TitleMiddleSlice
+  | ObjectiveSlice
+  | DreamSlice
+  | HerosSlice;
 
 /**
  * Content for Course documents
@@ -383,6 +387,16 @@ export interface CourseSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   content: prismic.RichTextField;
+
+  /**
+   * Link field in *Course → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
 }
 
 /**
@@ -411,6 +425,78 @@ type CourseSliceVariation = CourseSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type CourseSlice = prismic.SharedSlice<"course", CourseSliceVariation>;
+
+/**
+ * Primary content in *Dream → Primary*
+ */
+export interface DreamSliceDefaultPrimary {
+  /**
+   * Dream field in *Dream → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dream.primary.dream
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  dream: prismic.RichTextField;
+
+  /**
+   * Title field in *Dream → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dream.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Dream → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dream.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Image field in *Dream → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dream.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Dream Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DreamSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DreamSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Dream*
+ */
+type DreamSliceVariation = DreamSliceDefault;
+
+/**
+ * Dream Shared Slice
+ *
+ * - **API ID**: `dream`
+ * - **Description**: Dream
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DreamSlice = prismic.SharedSlice<"dream", DreamSliceVariation>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -577,6 +663,71 @@ type ImageSliceVariation = ImageSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
+
+/**
+ * Primary content in *Objective → Primary*
+ */
+export interface ObjectiveSliceDefaultPrimary {
+  /**
+   * Title field in *Objective → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: objective.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Objective → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: objective.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Image field in *Objective → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: objective.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Objective Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ObjectiveSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ObjectiveSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Objective*
+ */
+type ObjectiveSliceVariation = ObjectiveSliceDefault;
+
+/**
+ * Objective Shared Slice
+ *
+ * - **API ID**: `objective`
+ * - **Description**: Objective
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ObjectiveSlice = prismic.SharedSlice<
+  "objective",
+  ObjectiveSliceVariation
+>;
 
 /**
  * Primary content in *RichText → Primary*
@@ -1006,6 +1157,10 @@ declare module "@prismicio/client" {
       CourseSliceDefaultItem,
       CourseSliceVariation,
       CourseSliceDefault,
+      DreamSlice,
+      DreamSliceDefaultPrimary,
+      DreamSliceVariation,
+      DreamSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -1018,6 +1173,10 @@ declare module "@prismicio/client" {
       ImageSliceDefaultPrimary,
       ImageSliceVariation,
       ImageSliceDefault,
+      ObjectiveSlice,
+      ObjectiveSliceDefaultPrimary,
+      ObjectiveSliceVariation,
+      ObjectiveSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

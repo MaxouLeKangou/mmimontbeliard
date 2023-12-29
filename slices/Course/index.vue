@@ -23,15 +23,15 @@ defineProps(
         <PrismicRichText :field="slice.primary.title" class="max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-5xl"/>
         <PrismicRichText :field="slice.primary.content" class="text-light-200 text-sm lg:text-xl max-w-[800px]"/>
       </div>
-      <div v-for="(item, index) in slice.items" :key="index" class="bg-dark-200 px-[28px] py-[34px] text-sm flex flex-col gap-3 font-poppins font-normal text-light-200 lg:p-[50px] max-md:w-full md:max-w-[600px] lg:rounded-xl lg:gap-5">
+      <NuxtLink v-for="(item, index) in slice.items" :key="index" :to="'course/' + item.link.uid" class="bg-dark-200 px-[28px] py-[34px] text-sm flex flex-col gap-3 font-poppins font-normal text-light-200 lg:p-[50px] max-md:w-full md:max-w-[600px] lg:rounded-xl lg:gap-5">
         <PrismicRichText :field="item.title" class="max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-4xl"/>
-      
+
         <div class="flex gap-2 text-center font-light text-xs lg:text-sm lg:gap-4">
           <PrismicRichText :field="item.tag_1" class="py-1 px-2 bg-[#3F40454D] rounded-md drop-shadow-lg lg:px-4"/>
           <PrismicRichText :field="item.tag_2" class="py-1 px-2 bg-[#3F40454D] rounded-md drop-shadow-lg lg:px-4"/>
         </div>
         <PrismicRichText :field="item.content" class="font-normal text-sm lg:text-base"/>
-      </div>
+      </NuxtLink>
     </div>
   </section>
 </template>

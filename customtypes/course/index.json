@@ -26,6 +26,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "title_middle": {
+              "type": "SharedSlice"
+            },
+            "objective": {
+              "type": "SharedSlice"
+            },
+            "dream": {
+              "type": "SharedSlice"
+            },
             "heros": {
               "type": "SharedSlice"
             }
