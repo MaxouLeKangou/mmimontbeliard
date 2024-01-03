@@ -2,8 +2,8 @@
 import { components } from '~/slices'
 
 const prismic = usePrismic()
-const { data: page } = useAsyncData('departement', () =>
-  prismic.client.getByUID('informative', 'departement')
+const { data: page } = useAsyncData('faq', () =>
+  prismic.client.getByUID('informative', 'faq')
 )
 
 useHead({

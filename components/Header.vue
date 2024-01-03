@@ -18,16 +18,16 @@
                         <NuxtLink to="/training" class="duration-300 ease-in-out lg:px-4 hover:text-light-100">B.U.T</NuxtLink>
                     </li>
                     <li class="px-3 py-2 lg:px-4">
-                        <NuxtLink to="/" class="duration-300 ease-in-out hover:text-light-100">Département</NuxtLink>
+                        <NuxtLink to="/departement" class="duration-300 ease-in-out hover:text-light-100">Département</NuxtLink>
                     </li>
                     <li class="px-3 py-2 lg:px-4">
-                        <NuxtLink to="/" class="duration-300 ease-in-out hover:text-light-100">International</NuxtLink>
+                        <NuxtLink to="/international" class="duration-300 ease-in-out hover:text-light-100">International</NuxtLink>
                     </li>
                     <li class="px-3 py-2 lg:px-4">
-                        <NuxtLink to="/" class="duration-300 ease-in-out hover:text-light-100">F.A.Q</NuxtLink>
+                        <NuxtLink to="/faq" class="duration-300 ease-in-out hover:text-light-100">F.A.Q</NuxtLink>
                     </li>
                     <li class="px-3 py-2 lg:px-4">
-                        <NuxtLink to="/" class="duration-300 ease-in-out hover:text-light-100">Contact</NuxtLink>
+                        <NuxtLink to="/contact" class="duration-300 ease-in-out hover:text-light-100">Contact</NuxtLink>
                     </li>
                 </ul>
             </nav>
@@ -39,16 +39,16 @@
                     <NuxtLink to="/training">B.U.T</NuxtLink>
                 </li>
                 <li class="py-2 border-b-2 border-light-200">
-                    <NuxtLink to="/">Département</NuxtLink>
+                    <NuxtLink to="/departement">Département</NuxtLink>
                 </li>
                 <li class="py-2 border-b-2 border-light-200">
-                    <NuxtLink to="/">International</NuxtLink>
+                    <NuxtLink to="/international">International</NuxtLink>
                 </li>
                 <li class="py-2 border-b-2 border-light-200">
-                    <NuxtLink to="/">F.A.Q</NuxtLink>
+                    <NuxtLink to="/faq">F.A.Q</NuxtLink>
                 </li>
                 <li class="py-2 border-b-2 border-light-200">
-                    <NuxtLink to="/">Contact</NuxtLink>
+                    <NuxtLink to="/contact">Contact</NuxtLink>
                 </li>
             </ul>
             <Button buttonLink="/extras" buttonText="S'INSCRIRE" @click="closeMenu"/>
