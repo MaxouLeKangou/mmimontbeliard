@@ -36,7 +36,7 @@
         <nav v-show="menuIsOpen" class="h-screen w-screen bg-dark-300 px-[14%] flex flex-col gap-12 pt-12">
             <ul class="flex flex-col gap-4 text-2xl text-light-100 " @click="closeMenu">
                 <li class="py-2 border-b-2 border-light-200">
-                    <NuxtLink to="/">B.U.T</NuxtLink>
+                    <NuxtLink to="/training">B.U.T</NuxtLink>
                 </li>
                 <li class="py-2 border-b-2 border-light-200">
                     <NuxtLink to="/">Département</NuxtLink>
