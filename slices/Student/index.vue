@@ -18,7 +18,7 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="px-[6%] xl:px-[10%] flex flex-col gap-10 py-16 bg-[#221F28]">
+    <div class="px-[6%] xl:px-[10%] flex flex-col gap-10 py-16 lg:py-32 bg-[#221F28]">
       <div class="flex flex-col gap-6 lg:gap-10">
         <div class="flex flex-col gap-2 lg:gap-4">
           <PrismicRichText :field="slice.primary.title" class="uppercase max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-5xl"/>
