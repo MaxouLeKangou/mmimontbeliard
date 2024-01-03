@@ -11,6 +11,15 @@ defineProps(
     "context",
   ]),
 );
+
+
+const scrollDown = () => {
+  const windowHeight = window.innerHeight;
+  window.scrollBy({
+    top: windowHeight * 1.1,
+    behavior: 'smooth',
+  });
+};
 </script>
 
 <template>
@@ -22,7 +31,7 @@ defineProps(
       <PrismicRichText :field="slice.primary.title" class="max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-3xl lg:text-7xl"/>
       <PrismicRichText :field="slice.primary.content" class="font-normal text-light-100 text-sm max-w-[600px] lg:text-xl"/>
       <a class="inline-block bg-dark-200 text-light-100 rounded-xl border border-width-2 border-dark-100 p-0.5 mt-3 lg:mt-5 hover:border-light-200">
-        <p class="py-3 px-6 text-sm lg:text-base lg:py-3 lg:px-10">en découvrir plus</p>
+        <button @click="scrollDown" class="cursor-pointer py-3 px-6 text-sm lg:text-base lg:py-3 lg:px-10">en découvrir plus</button>
       </a>
     </div>
   </section>
