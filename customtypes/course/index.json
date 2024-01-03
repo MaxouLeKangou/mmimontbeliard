@@ -26,6 +26,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "training_course": {
+              "type": "SharedSlice"
+            },
+            "skill": {
+              "type": "SharedSlice"
+            },
             "student": {
               "type": "SharedSlice"
             },

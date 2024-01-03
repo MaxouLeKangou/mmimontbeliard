@@ -81,6 +81,8 @@ export type ArticleDocument<Lang extends string = string> =
   >;
 
 type CourseDocumentDataSlicesSlice =
+  | TrainingCourseSlice
+  | SkillSlice
   | StudentSlice
   | TitleMiddleSlice
   | ObjectiveSlice
@@ -776,6 +778,83 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Skill → Primary*
+ */
+export interface SkillSliceDefaultPrimary {
+  /**
+   * Title field in *Skill → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skill.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Skill → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skill.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Skill → Items*
+ */
+export interface SkillSliceDefaultItem {
+  /**
+   * Title field in *Skill → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skill.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Skill → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skill.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Skill Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SkillSliceDefaultPrimary>,
+  Simplify<SkillSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Skill*
+ */
+type SkillSliceVariation = SkillSliceDefault;
+
+/**
+ * Skill Shared Slice
+ *
+ * - **API ID**: `skill`
+ * - **Description**: Skill
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillSlice = prismic.SharedSlice<"skill", SkillSliceVariation>;
+
+/**
  * Primary content in *Student → Primary*
  */
 export interface StudentSliceDefaultPrimary {
@@ -990,6 +1069,96 @@ type TitleMiddleSliceVariation = TitleMiddleSliceDefault;
 export type TitleMiddleSlice = prismic.SharedSlice<
   "title_middle",
   TitleMiddleSliceVariation
+>;
+
+/**
+ * Primary content in *TrainingCourse → Primary*
+ */
+export interface TrainingCourseSliceDefaultPrimary {
+  /**
+   * Title field in *TrainingCourse → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_course.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Image field in *TrainingCourse → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_course.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *TrainingCourse → Items*
+ */
+export interface TrainingCourseSliceDefaultItem {
+  /**
+   * Title field in *TrainingCourse → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_course.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *TrainingCourse → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_course.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Link field in *TrainingCourse → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_course.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Default variation for TrainingCourse Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TrainingCourseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TrainingCourseSliceDefaultPrimary>,
+  Simplify<TrainingCourseSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *TrainingCourse*
+ */
+type TrainingCourseSliceVariation = TrainingCourseSliceDefault;
+
+/**
+ * TrainingCourse Shared Slice
+ *
+ * - **API ID**: `training_course`
+ * - **Description**: TrainingCourse
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TrainingCourseSlice = prismic.SharedSlice<
+  "training_course",
+  TrainingCourseSliceVariation
 >;
 
 /**
@@ -1292,6 +1461,11 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      SkillSlice,
+      SkillSliceDefaultPrimary,
+      SkillSliceDefaultItem,
+      SkillSliceVariation,
+      SkillSliceDefault,
       StudentSlice,
       StudentSliceDefaultPrimary,
       StudentSliceDefaultItem,
@@ -1305,6 +1479,11 @@ declare module "@prismicio/client" {
       TitleMiddleSliceDefaultPrimary,
       TitleMiddleSliceVariation,
       TitleMiddleSliceDefault,
+      TrainingCourseSlice,
+      TrainingCourseSliceDefaultPrimary,
+      TrainingCourseSliceDefaultItem,
+      TrainingCourseSliceVariation,
+      TrainingCourseSliceDefault,
       VideoSlice,
       VideoSliceDefaultPrimary,
       VideoSliceVariation,

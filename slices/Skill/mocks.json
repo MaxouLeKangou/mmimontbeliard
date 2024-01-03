@@ -1,0 +1,65 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua laboris aute laboris deserunt ipsum ut elit irure laboris anim sint commodo ut incididunt. Sint culpa et sint enim ullamco duis qui ut."
+						}
+					}
+				]
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cupidatat exercitation labore qui ipsum aliqua dolore et do magna labore eu non laborum proident. Exercitation id sit mollit eiusmod anim id culpa excepteur dolore quis fugiat adipisicing. Laboris non excepteur sit non quis est occaecat do do fugiat quis eiusmod in."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Lorem excepteur dolor consectetur cupidatat ullamco adipisicing ullamco ipsum minim magna culpa sunt aliqua ipsum. Velit et consequat sint ut aliqua proident deserunt anim est esse proident magna. Laborum enim laborum culpa do nulla qui minim nostrud in ut tempor ad deserunt labore et."
+									}
+								}
+							]
+						}
+					],
+					[
+						"content",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Exercitation occaecat commodo aliqua labore ea magna Lorem ea reprehenderit velit do. Sunt officia ipsum fugiat aute pariatur non ea."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]
