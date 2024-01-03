@@ -24,10 +24,13 @@ defineProps(
         <PrismicImage :field="slice.primary.image" class="w-full lg:w-[800px]"/>
         <div class="grid grid-cols-1 gap-4 text-light-100 lg:gap-16">
           <section v-for="(item, index) in slice.items" :key="index" class="col-span-1">
-            <div class="text-light-200 bg-dark-200 p-10 flex flex-col gap-2 lg:p-14 w-full">
-              <PrismicRichText :field="item.title" class="font-marker text-xl lg:text-3xl"/>
-              <PrismicRichText :field="item.content" class=" text-sm lg:text-xl"/>
-            </div>
+            <NuxtLink :to="'course/' + item.link.uid" class="text-light-200 bg-dark-200 p-10 flex flex-col gap-6 lg:p-14 w-full">
+              <div class="flex flex-col gap-2">
+                <PrismicRichText :field="item.title" class="font-marker text-xl lg:text-3xl"/>
+                <PrismicRichText :field="item.content" class=" text-sm lg:text-xl"/>
+              </div>
+              <p class="text-light-100">En savoir plus</p>
+            </NuxtLink>
           </section>
         </div>
       </div>
