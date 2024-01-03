@@ -15,7 +15,7 @@
             <nav class="hidden md:flex-1 md:flex justify-center">
                 <ul class="flex text-sm lg:text-base gap-2 lg:gap-5">
                     <li class="px-3 py-2 lg:px-4">
-                        <NuxtLink to="/" class="duration-300 ease-in-out lg:px-4 hover:text-light-100">B.U.T</NuxtLink>
+                        <NuxtLink to="/training" class="duration-300 ease-in-out lg:px-4 hover:text-light-100">B.U.T</NuxtLink>
                     </li>
                     <li class="px-3 py-2 lg:px-4">
                         <NuxtLink to="/" class="duration-300 ease-in-out hover:text-light-100">Département</NuxtLink>

@@ -1,0 +1,113 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Labore laborum pariatur do elit laboris. Aliqua labore ea sint elit anim anim pariatur ut deserunt mollit nisi culpa voluptate officia."
+						}
+					}
+				]
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua ea eu laboris. Est exercitation laborum pariatur qui et in aute qui anim consectetur eiusmod pariatur aute."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+								"width": 4016,
+								"height": 6016
+							},
+							"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+							"width": 4016,
+							"height": 6016,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {}
+						}
+					],
+					[
+						"name",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Velit laborum esse fugiat occaecat fugiat elit ex veniam culpa consectetur culpa dolor. Exercitation veniam cupidatat pariatur. Officia anim ullamco laborum aute nulla ut."
+									}
+								}
+							]
+						}
+					],
+					[
+						"work",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Et dolor ipsum laborum pariatur ex tempor occaecat nostrud mollit labore aliqua."
+									}
+								}
+							]
+						}
+					],
+					[
+						"companie",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Incididunt aliqua deserunt velit exercitation. Eu nisi ex amet in non id incididunt ut adipisicing incididunt eiusmod mollit."
+									}
+								}
+							]
+						}
+					],
+					[
+						"linkedin",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://twitter.com"
+							}
+						}
+					]
+				]
+			}
+		]
+	}
+]

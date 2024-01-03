@@ -81,6 +81,7 @@ export type ArticleDocument<Lang extends string = string> =
   >;
 
 type CourseDocumentDataSlicesSlice =
+  | StudentSlice
   | TitleMiddleSlice
   | ObjectiveSlice
   | DreamSlice
@@ -775,6 +776,116 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Student → Primary*
+ */
+export interface StudentSliceDefaultPrimary {
+  /**
+   * Title field in *Student → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Student → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Student → Items*
+ */
+export interface StudentSliceDefaultItem {
+  /**
+   * Image field in *Student → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Student → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Work field in *Student → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student.items[].work
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  work: prismic.RichTextField;
+
+  /**
+   * Companie field in *Student → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student.items[].companie
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  companie: prismic.RichTextField;
+
+  /**
+   * LinkedIn field in *Student → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student.items[].linkedin
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedin: prismic.LinkField;
+}
+
+/**
+ * Default variation for Student Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StudentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StudentSliceDefaultPrimary>,
+  Simplify<StudentSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Student*
+ */
+type StudentSliceVariation = StudentSliceDefault;
+
+/**
+ * Student Shared Slice
+ *
+ * - **API ID**: `student`
+ * - **Description**: Student
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StudentSlice = prismic.SharedSlice<
+  "student",
+  StudentSliceVariation
+>;
+
+/**
  * Primary content in *Title → Primary*
  */
 export interface TitleSliceDefaultPrimary {
@@ -1181,6 +1292,11 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      StudentSlice,
+      StudentSliceDefaultPrimary,
+      StudentSliceDefaultItem,
+      StudentSliceVariation,
+      StudentSliceDefault,
       TitleSlice,
       TitleSliceDefaultPrimary,
       TitleSliceVariation,

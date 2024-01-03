@@ -26,6 +26,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "student": {
+              "type": "SharedSlice"
+            },
             "title_middle": {
               "type": "SharedSlice"
             },
