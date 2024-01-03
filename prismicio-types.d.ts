@@ -159,7 +159,7 @@ interface CourseDocumentData {
 export type CourseDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<CourseDocumentData>, "course", Lang>;
 
-type InformativeDocumentDataSlicesSlice = VideoSlice | HerosSlice;
+type InformativeDocumentDataSlicesSlice = ImageSlice | VideoSlice | HerosSlice;
 
 /**
  * Content for Informative documents
