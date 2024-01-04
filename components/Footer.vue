@@ -10,13 +10,13 @@
         <nav class="flex-1 flex justify-center">
             <ul class="flex flex-col text-center gap-2 lg:flex-row lg:gap-8">
                 <li class="px-4 py-2 duration-300 ease-in-out hover:text-light-200">
-                    <NuxtLink class="px-4 py-2" to="/">Mentions Légales</NuxtLink>
+                    <NuxtLink class="px-4 py-2" to="/mentions">Mentions Légales</NuxtLink>
                 </li>
                 <li class="px-4 py-2 duration-300 ease-in-out hover:text-light-200">
-                    <NuxtLink class="px-4 py-2" to="/">Cookies</NuxtLink>
+                    <NuxtLink class="px-4 py-2" to="/cookies">Cookies</NuxtLink>
                 </li>
                 <li class="px-4 py-2 duration-300 ease-in-out hover:text-light-200">
-                    <NuxtLink class="px-4 py-2" to="/">Contact</NuxtLink>
+                    <NuxtLink class="px-4 py-2" to="/contact">Contact</NuxtLink>
                 </li>
             </ul>
         </nav>

@@ -242,6 +242,78 @@ export type InformativeDocument<Lang extends string = string> =
     Lang
   >;
 
+type LegalDocumentDataSlicesSlice = HerosSlice | ContentSlice;
+
+/**
+ * Content for Legal documents
+ */
+interface LegalDocumentData {
+  /**
+   * Title field in *Legal*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Legal*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LegalDocumentDataSlicesSlice> /**
+   * Meta Description field in *Legal*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: legal.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Legal*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Legal*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: legal.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Legal document from Prismic
+ *
+ * - **API ID**: `legal`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LegalDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<LegalDocumentData>, "legal", Lang>;
+
 type PageDocumentDataSlicesSlice =
   | WorksSlice
   | ImageSlice
@@ -297,6 +369,7 @@ export type AllDocumentTypes =
   | ArticleDocument
   | CourseDocument
   | InformativeDocument
+  | LegalDocument
   | PageDocument;
 
 /**
@@ -407,6 +480,61 @@ type ArticleSliceVariation = ArticleSliceDefault;
 export type ArticleSlice = prismic.SharedSlice<
   "article",
   ArticleSliceVariation
+>;
+
+/**
+ * Primary content in *Content → Items*
+ */
+export interface ContentSliceDefaultItem {
+  /**
+   * Title field in *Content → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Content → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Content Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ContentSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Content*
+ */
+type ContentSliceVariation = ContentSliceDefault;
+
+/**
+ * Content Shared Slice
+ *
+ * - **API ID**: `content`
+ * - **Description**: Content
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSlice = prismic.SharedSlice<
+  "content",
+  ContentSliceVariation
 >;
 
 /**
@@ -1725,6 +1853,9 @@ declare module "@prismicio/client" {
       InformativeDocument,
       InformativeDocumentData,
       InformativeDocumentDataSlicesSlice,
+      LegalDocument,
+      LegalDocumentData,
+      LegalDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -1734,6 +1865,10 @@ declare module "@prismicio/client" {
       ArticleSliceDefaultItem,
       ArticleSliceVariation,
       ArticleSliceDefault,
+      ContentSlice,
+      ContentSliceDefaultItem,
+      ContentSliceVariation,
+      ContentSliceDefault,
       CourseSlice,
       CourseSliceDefaultPrimary,
       CourseSliceDefaultItem,
