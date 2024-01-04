@@ -13,6 +13,7 @@ export const components = defineSliceZoneComponents({
   image_right: defineAsyncComponent(() => import("./ImageRight/index.vue")),
   meet: defineAsyncComponent(() => import("./Meet/index.vue")),
   objective: defineAsyncComponent(() => import("./Objective/index.vue")),
+  quality: defineAsyncComponent(() => import("./Quality/index.vue")),
   rich_text: defineAsyncComponent(() => import("./RichText/index.vue")),
   skill: defineAsyncComponent(() => import("./Skill/index.vue")),
   student: defineAsyncComponent(() => import("./Student/index.vue")),

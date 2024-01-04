@@ -160,6 +160,7 @@ export type CourseDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<CourseDocumentData>, "course", Lang>;
 
 type InformativeDocumentDataSlicesSlice =
+  | QualitySlice
   | MeetSlice
   | StudentSlice
   | ImageRightSlice
@@ -961,6 +962,76 @@ export type ObjectiveSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Quality → Primary*
+ */
+export interface QualitySliceDefaultPrimary {
+  /**
+   * Title field in *Quality → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quality.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Quality → Items*
+ */
+export interface QualitySliceDefaultItem {
+  /**
+   * Title field in *Quality → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quality.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Quality → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quality.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Quality Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QualitySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<QualitySliceDefaultPrimary>,
+  Simplify<QualitySliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Quality*
+ */
+type QualitySliceVariation = QualitySliceDefault;
+
+/**
+ * Quality Shared Slice
+ *
+ * - **API ID**: `quality`
+ * - **Description**: Quality
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QualitySlice = prismic.SharedSlice<
+  "quality",
+  QualitySliceVariation
+>;
+
+/**
  * Primary content in *RichText → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -1697,6 +1768,11 @@ declare module "@prismicio/client" {
       ObjectiveSliceDefaultPrimary,
       ObjectiveSliceVariation,
       ObjectiveSliceDefault,
+      QualitySlice,
+      QualitySliceDefaultPrimary,
+      QualitySliceDefaultItem,
+      QualitySliceVariation,
+      QualitySliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

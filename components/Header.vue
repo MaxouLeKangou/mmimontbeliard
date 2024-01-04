@@ -31,7 +31,7 @@
                     </li>
                 </ul>
             </nav>
-            <Button class="hidden md:block" buttonLink="/extras" buttonText="S'INSCRIRE"/>
+            <Button class="hidden md:block" buttonLink="/registration" buttonText="S'INSCRIRE"/>
         </div>
         <nav v-show="menuIsOpen" class="h-screen w-screen bg-dark-300 px-[14%] flex flex-col gap-12 pt-12">
             <ul class="flex flex-col gap-4 text-2xl text-light-100 " @click="closeMenu">
@@ -51,7 +51,7 @@
                     <NuxtLink to="/contact">Contact</NuxtLink>
                 </li>
             </ul>
-            <Button buttonLink="/extras" buttonText="S'INSCRIRE" @click="closeMenu"/>
+            <Button buttonLink="/registration" buttonText="S'INSCRIRE" @click="closeMenu"/>
         </nav>
     
     </header>
