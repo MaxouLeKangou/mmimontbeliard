@@ -26,6 +26,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "meet": {
+              "type": "SharedSlice"
+            },
+            "student": {
+              "type": "SharedSlice"
+            },
+            "image_right": {
+              "type": "SharedSlice"
+            },
             "image": {
               "type": "SharedSlice"
             },

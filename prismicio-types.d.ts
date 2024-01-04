@@ -159,7 +159,13 @@ interface CourseDocumentData {
 export type CourseDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<CourseDocumentData>, "course", Lang>;
 
-type InformativeDocumentDataSlicesSlice = ImageSlice | VideoSlice | HerosSlice;
+type InformativeDocumentDataSlicesSlice =
+  | MeetSlice
+  | StudentSlice
+  | ImageRightSlice
+  | ImageSlice
+  | VideoSlice
+  | HerosSlice;
 
 /**
  * Content for Informative documents
@@ -746,6 +752,148 @@ type ImageSliceVariation = ImageSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
+
+/**
+ * Primary content in *ImageRight → Primary*
+ */
+export interface ImageRightSliceDefaultPrimary {
+  /**
+   * Title field in *ImageRight → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_right.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *ImageRight → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_right.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Image field in *ImageRight → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_right.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ImageRight Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageRightSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageRightSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageRight*
+ */
+type ImageRightSliceVariation = ImageRightSliceDefault;
+
+/**
+ * ImageRight Shared Slice
+ *
+ * - **API ID**: `image_right`
+ * - **Description**: ImageRight
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageRightSlice = prismic.SharedSlice<
+  "image_right",
+  ImageRightSliceVariation
+>;
+
+/**
+ * Primary content in *Meet → Primary*
+ */
+export interface MeetSliceDefaultPrimary {
+  /**
+   * Title field in *Meet → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Meet → Items*
+ */
+export interface MeetSliceDefaultItem {
+  /**
+   * Title field in *Meet → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *Meet → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Image field in *Meet → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Meet Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MeetSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MeetSliceDefaultPrimary>,
+  Simplify<MeetSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Meet*
+ */
+type MeetSliceVariation = MeetSliceDefault;
+
+/**
+ * Meet Shared Slice
+ *
+ * - **API ID**: `meet`
+ * - **Description**: Meet
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MeetSlice = prismic.SharedSlice<"meet", MeetSliceVariation>;
 
 /**
  * Primary content in *Objective → Primary*
@@ -1536,6 +1684,15 @@ declare module "@prismicio/client" {
       ImageSliceDefaultPrimary,
       ImageSliceVariation,
       ImageSliceDefault,
+      ImageRightSlice,
+      ImageRightSliceDefaultPrimary,
+      ImageRightSliceVariation,
+      ImageRightSliceDefault,
+      MeetSlice,
+      MeetSliceDefaultPrimary,
+      MeetSliceDefaultItem,
+      MeetSliceVariation,
+      MeetSliceDefault,
       ObjectiveSlice,
       ObjectiveSliceDefaultPrimary,
       ObjectiveSliceVariation,
