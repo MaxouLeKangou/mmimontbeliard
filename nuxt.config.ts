@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxtjs/prismic', "@nuxt/image"],
+  modules: ['@nuxtjs/prismic', "@nuxt/image", "@nuxtjs/google-analytics"],
 
   prismic: {
     endpoint: 'mmimontbeliard',
@@ -44,4 +44,13 @@ export default defineNuxtConfig({
       ]
     }
   },
+
+  googleAnalytics: {
+    id: 'GTM-K2848C47',
+  },
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: 'GTM-K2848C47'
+    }
+  }
 })
