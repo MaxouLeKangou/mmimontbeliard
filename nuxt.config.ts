@@ -45,12 +45,9 @@ export default defineNuxtConfig({
     }
   },
 
-  googleAnalytics: {
-    id: 'GTM-K2848C47',
-  },
-  publicRuntimeConfig: {
-    googleAnalytics: {
-      id: 'GTM-K2848C47'
+  runtimeConfig: {
+    public: {
+      gtagId: 'GTM-K2848C47',
     }
   }
 })
