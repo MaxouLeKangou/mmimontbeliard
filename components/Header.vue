@@ -15,7 +15,7 @@
             <nav class="hidden md:flex-1 md:flex justify-center">
                 <ul class="flex text-sm lg:text-base gap-2 lg:gap-5">
                     <li class="px-3 py-2 lg:px-4">
-                        <NuxtLink to="/training" class="duration-300 ease-in-out lg:px-4 hover:text-light-100">B.U.T</NuxtLink>
+                        <NuxtLink to="/training" class="px-4 py-2 duration-300 ease-in-out hover:text-light-100">B.U.T</NuxtLink>
                     </li>
                     <li class="px-3 py-2 lg:px-4">
                         <NuxtLink to="/departement" class="duration-300 ease-in-out hover:text-light-100">Département</NuxtLink>
@@ -36,19 +36,19 @@
         <nav v-show="menuIsOpen" class="h-screen w-screen bg-dark-300 px-[14%] flex flex-col gap-12 pt-12">
             <ul class="flex flex-col gap-4 text-2xl text-light-100 " @click="closeMenu">
                 <li class="py-2 border-b-2 border-light-200">
-                    <NuxtLink to="/training">B.U.T</NuxtLink>
+                    <NuxtLink to="/training" class="block w-full">B.U.T</NuxtLink>
                 </li>
                 <li class="py-2 border-b-2 border-light-200">
-                    <NuxtLink to="/departement">Département</NuxtLink>
+                    <NuxtLink to="/departement" class="block w-full">Département</NuxtLink>
                 </li>
                 <li class="py-2 border-b-2 border-light-200">
-                    <NuxtLink to="/international">International</NuxtLink>
+                    <NuxtLink to="/international" class="block w-full">International</NuxtLink>
                 </li>
                 <li class="py-2 border-b-2 border-light-200">
-                    <NuxtLink to="/faq">F.A.Q</NuxtLink>
+                    <NuxtLink to="/faq" class="block w-full">F.A.Q</NuxtLink>
                 </li>
                 <li class="py-2 border-b-2 border-light-200">
-                    <NuxtLink to="/contact">Contact</NuxtLink>
+                    <NuxtLink to="/contact" class="block w-full">Contact</NuxtLink>
                 </li>
             </ul>
             <Button buttonLink="/registration" buttonText="S'INSCRIRE" @click="closeMenu"/>
