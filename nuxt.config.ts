@@ -27,7 +27,7 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/prismic', "@nuxt/image", "nuxt-gtag"],
   gtag: {
-    id: 'GTM-K2848C47'
+    id: 'G-5LY5TB8NB1'
   },
 
   prismic: {
