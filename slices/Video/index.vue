@@ -23,7 +23,7 @@ defineProps(
         <PrismicRichText :field="slice.primary.title" class="max-w-max py-2 font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl xl:text-5xl"/>
         <PrismicRichText :field="slice.primary.content" class="text-light-200 text-sm xl:text-xl max-w-[800px]"/>
       </div>
-      <PrismicEmbed :field="slice.primary.video" class="w-full h-full"/>
+      <!-- <PrismicEmbed :field="slice.primary.video" class="w-full h-full"/> -->
     </div>
   </section>
 </template>

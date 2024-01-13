@@ -24,8 +24,8 @@ defineProps(
       <div class="grid gap-5 lg:grid-cols-3">
         <div v-for="(item, index) in slice.items" :key="index" class="bg-dark-200 px-[28px] py-[34px] text-sm flex flex-col gap-3 font-poppins font-normal text-light-200 lg:p-[32px] lg:rounded-xl lg:gap-5">
           <div>
-            <PrismicRichText :field="item.year" class="font-marker text-light-200 text-base lg:text-xl"/>
-            <PrismicRichText :field="item.title" class="max-w-max py-2 font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-4xl"/>
+            <PrismicRichText :field="item.year" class="font-marker text-light-200 text-sm lg:text-lg"/>
+            <PrismicRichText :field="item.title" class="max-w-max py-2 font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-2xl"/>
           </div>
           <PrismicRichText :field="item.content" class="font-normal text-sm lg:text-base"/>
         </div>
