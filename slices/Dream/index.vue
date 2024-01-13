@@ -22,7 +22,7 @@ defineProps(
       <div class="flex flex-col gap-6 lg:gap-10">
         <div class="flex flex-col gap-2 lg:gap-4">
           <PrismicRichText :field="slice.primary.dream" class="text-light-100 text-sm lg:text-xl"/>
-          <PrismicRichText :field="slice.primary.title" class="max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-5xl"/>
+          <PrismicRichText :field="slice.primary.title" class="max-w-max py-2 font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-5xl"/>
         </div>
         <PrismicRichText :field="slice.primary.content" class="text-light-200 text-sm lg:text-xl max-w-[800px]"/>
       </div>

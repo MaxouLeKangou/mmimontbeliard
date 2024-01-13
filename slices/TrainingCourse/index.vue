@@ -19,7 +19,7 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
     <div class="px-[6%] xl:px-[10%] flex flex-col py-16 lg:py-32 lg:gap-20">
-      <PrismicRichText :field="slice.primary.title" class="uppercase max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-5xl"/>
+      <PrismicRichText :field="slice.primary.title" class="uppercase max-w-max py-2 font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-5xl"/>
       <div class="lg:grid grid-cols-2 gap-20 order-5 items-center">
         <PrismicImage :field="slice.primary.image" class="w-full lg:w-[800px]"/>
         <div class="grid grid-cols-1 gap-4 text-light-100 lg:gap-16">

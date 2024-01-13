@@ -20,7 +20,7 @@ defineProps(
   >
   <div class="flex flex-col gap-10 lg:gap-20">
     <div class="flex flex-col gap-3 lg:gap-5">
-      <PrismicRichText :field="slice.primary.title" class="max-w-max font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-5xl"/>
+      <PrismicRichText :field="slice.primary.title" class="max-w-max py-2 font-marker bg-gradient-to-r from-purple to-pink text-transparent bg-clip-text text-xl lg:text-5xl"/>
       <PrismicRichText :field="slice.primary.content" class="text-light-200 text-sm lg:text-xl max-w-[800px]"/>
     </div>
       <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-10">
