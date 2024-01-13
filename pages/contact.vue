@@ -25,7 +25,7 @@ useHead({
       </div>
     </div>
     <div class="grid grid-cols-1 gap-6 text-light-100 lg:text-xl">
-      <h5 class="font-semibold">DÉPARTEMENT MÉTIERS DU MULTIMÉDIA & DE L'INTERNET DE MONTBÉLIARD</h5>
+      <h2 class="font-semibold">DÉPARTEMENT MÉTIERS DU MULTIMÉDIA & DE L'INTERNET DE MONTBÉLIARD</h2>
       <div class="text-[#B0B0B0]">
         <a class="underline" href="https://www.google.fr/maps/place/4+Pl.+Lucien+Tharradin+25+200,+25200+Montb%C3%A9liard/@47.4945922,6.7992135,17z/data=!3m1!4b1!4m5!3m4!1s0x479216d875036401:0xf4ceda1a2755d37f!8m2!3d47.4945922!4d6.8017884?entry=ttu">4, place Tharradin - 25200 Montbéliard</a>
         <p>Tél. <a href="tel:03 81 99 47 34">+33 3 81 99 47 34</a></p>
